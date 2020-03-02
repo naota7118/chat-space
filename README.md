@@ -13,7 +13,6 @@ _ has_many :groups, through:  :groups_users
 |Column|Type|Options|
 |------|----|-------|
 |groupname|string|null: false|
-|chatmembername|string|null: false|
 ### Association
 _ has_many :posts
 _ has_many :users, through:  :groups_users
@@ -30,8 +29,8 @@ _ has_many :users, through:  :groups_users
 ## postsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|text|integer|null: false|
-|image|integer|null: false|
+|text|text|null: false|
+|image|text|null: false|
 ### Association
 - belongs_to :group
 - belongs_to :user
