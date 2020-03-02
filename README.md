@@ -2,7 +2,7 @@
 ## usersテーブル
 |Column|Type|Options|
 |------|----|-------|
-|username|string|null: false, unique: true|
+|username|string|index: true, null: false, unique: true|
 |email|string|null: false, unique: true|
 |password|string|null: false, unique: true|
 ### Association
