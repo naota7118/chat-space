@@ -2,27 +2,30 @@
   box-sizing: border-box;
 }
 
-.Side-bar_user-name {
-  width: 300px;
-  background-color: #253141;
+.header {
+  .Side-bar_user-name {
+    width: 300px;
+    background-color: #253141;
+  .Chat-main__group-info {
+    width: calc(100vw-300px);
+    background-color: #253141;
+  }
 }
 
-.Side-bar_group-list {
-  width: 300px;
-  background-color: #253141;
+.content {
+  .Side-bar_group-list {
+    width: 300px;
+    background-color: #253141;
+  }
+  .Chat-main__message-list {
+    width: calc(100vw-300px);
+    background-color: #253141;
+  }
 }
 
-.Chat-main__group-info {
-  width: calc(100vw-300px);
-  background-color: #253141;
-}
-
-.Chat-main__message-list {
-  width: calc(100vw-300px);
-  background-color: #253141;
-}
-
-.Chat-main__message-form {
-  width: calc(100vw-300px)x;
-  background-color: #253141;
+.footer {
+  .Chat-main__message-form {
+    width: calc(100vw-300px)x;
+    background-color: #253141;
+  }
 }
