@@ -1,0 +1,35 @@
+.chat-main
+  .main-header
+    .main-header-left
+      .group-name
+        test
+      .group-member
+        Member：masa
+    .main-header-right
+      = link_to "#" do
+        .edit-btn
+          Edit 
+  .messages
+    .messages-posts
+      .messages-post1
+        .post1-name
+          masa
+        .post1-time
+          2019/11/20(Wed)17:43:01
+      .messages-message1
+        おはよう！
+      .messages-post2
+        .post2-name
+          masa
+        .post2-time
+          2019/11/20(Wed)17:43:34
+      .messages-message2
+        今日は夜から雨
+  .main-footer
+    %form.new_message{enctype: "multipart/form-data" ,action:"/groups/21614/messages" ,"accept-charset"=>"UTF-8", method:"post"}
+      .input-box
+        %input.input-box-file{:name => "sample", :placeholder => "type a message", :type => "text"}/
+        %label.input-box__image{for: "message_image"}
+          = icon('fa', 'image')
+          %input.input-box__image__file{type: "file", name: "message[image]", id:"message_image"}
+      %input.send-btn{:type => "submit",:name => "commit", :value => "Send"}/    
