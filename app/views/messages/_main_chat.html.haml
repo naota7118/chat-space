@@ -1,9 +1,9 @@
 .chat-main
   .main-header
     .main-header-left
-      .group-name
+      .main-header-left-name
         test
-      .group-member
+      .main-header-left-member
         Member：masa
     .main-header-right
       = link_to "#" do
@@ -11,19 +11,19 @@
           Edit 
   .messages
     .messages-posts
-      .messages-post1
-        .post1-name
+      .messages-posts-1
+        .messages-posts-1-name
           masa
-        .post1-time
+        .messages-posts-1-time
           2019/11/20(Wed)17:43:01
-      .messages-message1
+      .messages-posts-message1
         おはよう！
-      .messages-post2
-        .post2-name
+      .messages-posts-2
+        .messages-posts-2-name
           masa
-        .post2-time
+        .messages-posts-2-time
           2019/11/20(Wed)17:43:34
-      .messages-message2
+      .messages-posts-message2
         今日は夜から雨
   .main-footer
     %form.new_message{enctype: "multipart/form-data" ,action:"/groups/21614/messages" ,"accept-charset"=>"UTF-8", method:"post"}
