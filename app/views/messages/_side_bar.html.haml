@@ -4,13 +4,15 @@
       .side-header-box__name
         = current_user.name
       .side-header-box__icons
-        = link_to "#", class: "side-header-box__icons__icon" do
-          = icon('far', 'edit')
-        = link_to edit_user_path(current_user) do
-          = icon('fas', 'cog', class: 'side-header-box__icons__icon')
+        = link_to new_group_path do
+          = icon('fa','edit')
+        = link_to edit_user_path(current_user.id) do
+          = icon('fa','cog')
   .groups
-    .groups-box
-      .groups-box-name
-        techcamp
-      .groups-box-message
-        まだメッセージがありません
+    - current_user.groups.each do |group|
+      .groups-box
+        = link_to '#' do
+          .groups-box-name
+            = group.name
+          .groups-box-message
+            メッセージはまだありません
