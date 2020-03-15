@@ -2,34 +2,22 @@
   .main-header
     .main-header-left
       .main-header-left-name
-        test
+        = @group.name
       .main-header-left-member
-        Member：masa
+        - @group.users.each do |user|
+          = user.name
     .main-header-right
-      = link_to "#" do
+      = link_to edit_group_path(@group) do
         .edit-btn
           Edit 
   .messages
-    .messages-posts
-      .messages-posts-1
-        .messages-posts-1-name
-          masa
-        .messages-posts-1-time
-          2019/11/20(Wed)17:43:01
-      .messages-posts-message1
-        おはよう！
-      .messages-posts-2
-        .messages-posts-2-name
-          masa
-        .messages-posts-2-time
-          2019/11/20(Wed)17:43:34
-      .messages-posts-message2
-        今日は夜から雨
+    = render @messages
   .main-footer
-    %form.new_message{enctype: "multipart/form-data" ,action:"/groups/21614/messages" ,"accept-charset"=>"UTF-8", method:"post"}
-      .input-box
-        %input.input-box-file{:name => "sample", :placeholder => "type a message", :type => "text"}/
-        %label.input-box__image{for: "message_image"}
-          = icon('fa', 'image')
-          %input.input-box__image__file{type: "file", name: "message[image]", id:"message_image"}
-      %input.send-btn{:type => "submit",:name => "commit", :value => "Send"}/    
+    .new_message
+      = form_for [@group, @message] do |f|
+        .input-box
+          = f.text_field :content, class: 'input-box__text',placeholder: 'type a message' #メッセージ入れるところ
+          = f.label :image, class: 'input-box__image' do
+            = icon('fa', 'image', class: 'icon') #FontAwesomeのところ
+            = f.file_field :image,type: 'file',id: 'message_image',class: 'input-box__image__file' #FontAwesomeクリックすると写真選べるところ
+          = f.submit :content, class: 'send-btn',type: 'submit',value: 'Send' #ボタンのところ
