@@ -53,7 +53,6 @@ $(function(){
     })
     .done(function(data){
       var html = buildHTML(data);
-      console.log(html);
       $('.messages').append(html);
       $('form')[0].reset();
     })
