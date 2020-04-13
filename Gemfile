@@ -69,6 +69,7 @@ gem 'mini_magick'
 gem 'pry-rails'
 gem 'jquery-rails'
 gem "actionview", ">= 5.2.4.2"
+gem 'fog-aws'
 
 group :production do
   gem 'unicorn', '5.4.1'
