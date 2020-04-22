@@ -20,7 +20,7 @@ $(function(){
 
   function addDeleteUser(name, id) {
     let html = `
-    <div class="chat-group-user clearfix" id="${id}">
+    <div class="chat-group-user clearfix js-chat-member" data-user-id="${id}" id="${id}">
       <p class="chat-group-user__name">${name}</p>
       <div class="user-search-remove chat-group-user__btn chat-group-user__btn--remove js-remove-btn" data-user-id="${id}" data-user-name="${name}">削除</div>
     </div>`;
@@ -33,10 +33,17 @@ $(function(){
 
   $("#user-search-field").on("keyup", function() {
     let input = $("#user-search-field").val();
+    let num = $(".js-chat-member").length
+    let user_ids = []
+    for (let i=0; i < num; i++) {
+      user_id = $(".js-chat-member").eq(i).data("user-id")
+      user_ids.push(user_id)
+    }
+  
     $.ajax({
       type: "GET",
       url: "/users",
-      data: { keyword: input },
+      data: { keyword: input, user_ids: user_ids },
       dataType: "json"
     })
     .done(function(users) {
